@@ -469,15 +469,17 @@ void RotateInCircle(const Sphere& sphere, Vector3& position, float& angle)
 	acceleration.y = -sphere.radius * angularVelocity * angularVelocity * sin(angle);
 	acceleration.z = 0.0f;
 
-	velocity.x += acceleration.x;
+	/*velocity.x += acceleration.x;
 	velocity.y += acceleration.y;
-	velocity.z += acceleration.z;
+	velocity.z += acceleration.z;*/
 
-	position.x += velocity.x;
+	/*position.x += velocity.x;
 	position.y += velocity.y;
-	position.z += velocity.z;
+	position.z += velocity.z;*/
 
-
+	position.x += acceleration.x;
+	position.y += acceleration.y;
+	position.z += acceleration.z;
 
 
 
