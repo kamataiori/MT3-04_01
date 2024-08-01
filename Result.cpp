@@ -38,45 +38,7 @@ void Result::Update()
 	
 	if (start == true)
 	{
-		//angle += 0.1f;
-		//RotateInCircle(sphere, position, angle);
-
-		float angularVelocity = 3.14f;
-		float deltaTime = 1.0f / 60.0f;
-		angle += angularVelocity * deltaTime;
-
-		/*position.x = sphere.center.x + cos(angle) * sphere.radius;
-		position.y = sphere.center.y + sin(angle) * sphere.radius;
-		position.z = sphere.center.z;*/
-
-
-		sphere.center.x = position.x + cos(angle) * sphere.radius;
-		sphere.center.y = position.y + sin(angle) * sphere.radius;
-		sphere.center.z = position.z;
-
-
-
-		Vector3 velocity;
-		velocity.x = -sphere.radius * angularVelocity * sin(angle);
-		velocity.y = sphere.radius * angularVelocity * cos(angle);
-		velocity.z = 0.0f;
-
-		Vector3 acceleration{};
-		acceleration.x = -sphere.radius * angularVelocity * angularVelocity * cos(angle);
-		acceleration.y = -sphere.radius * angularVelocity * angularVelocity * sin(angle);
-		acceleration.z = 0.0f;
-
-		/*velocity.x += acceleration.x;
-		velocity.y += acceleration.y;
-		velocity.z += acceleration.z;*/
-
-		position.x += velocity.x;
-		position.y += velocity.y;
-		position.z += velocity.z;
-
-		/*position.x += acceleration.x;
-		position.y += acceleration.y;
-		position.z += acceleration.z;*/
+		RotateInCircle(sphere, position, angle);
 	}
 }
 

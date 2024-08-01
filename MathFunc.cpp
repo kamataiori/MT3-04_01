@@ -451,6 +451,7 @@ Vector3 Lerp(const Vector3& a, const Vector3& b, float t)
 
 void RotateInCircle(const Sphere& sphere, Vector3& position, float& angle)
 {
+	//position = { sphere.center.x + sphere.radius * cos(theta), sphere.center.y + sphere.radius * sin(theta) };
 	float angularVelocity = 3.14f;
 	float deltaTime = 1.0f / 60.0f;
 	angle += angularVelocity * deltaTime;
@@ -469,44 +470,12 @@ void RotateInCircle(const Sphere& sphere, Vector3& position, float& angle)
 	acceleration.y = -sphere.radius * angularVelocity * angularVelocity * sin(angle);
 	acceleration.z = 0.0f;
 
-	/*velocity.x += acceleration.x;
+	velocity.x += acceleration.x;
 	velocity.y += acceleration.y;
-	velocity.z += acceleration.z;*/
+	velocity.z += acceleration.z;
 
-	/*position.x += velocity.x;
+	position.x += velocity.x;
 	position.y += velocity.y;
-	position.z += velocity.z;*/
-
-	position.x += acceleration.x;
-	position.y += acceleration.y;
-	position.z += acceleration.z;
-
-
-
-	////position = { sphere.center.x + sphere.radius * cos(theta), sphere.center.y + sphere.radius * sin(theta) };
-	//float angularVelocity = 3.14f;
-	//float deltaTime = 1.0f / 60.0f;
-	//angle += angularVelocity * deltaTime;
-
-	//position.x = sphere.center.x + cos(angle) * sphere.radius;
-	//position.y = sphere.center.y + sin(angle) * sphere.radius;
-	//position.z = sphere.center.z;
-
-	//Vector3 velocity;
-	//velocity.x = -sphere.radius * angularVelocity * sin(angle);
-	//velocity.y = sphere.radius * angularVelocity * cos(angle);
-	//velocity.z = 0.0f;
-
-	//Vector3 acceleration{};
-	//acceleration.x = -sphere.radius * angularVelocity * angularVelocity * cos(angle);
-	//acceleration.y = -sphere.radius * angularVelocity * angularVelocity * sin(angle);
-	//acceleration.z = 0.0f;
-
-	//velocity.x += acceleration.x;
-	//velocity.y += acceleration.y;
-	//velocity.z += acceleration.z;
-
-	//position.x += velocity.x;
-	//position.y += velocity.y;
+	position.z += velocity.z;
 	//position.z += velocity.z;
 }
